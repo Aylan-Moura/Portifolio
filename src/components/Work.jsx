@@ -7,7 +7,7 @@ export default function Work() {
             link: 'https://lardobenjamim.com.br/',
         },
         {
-            name: 'Crud',
+            name: 'CRUD de clientes',
             icon: './assets/work-2.png',
             description: 'Back-End',
             link: 'https://github.com/Aylan-Moura/Ebac/tree/main/src/CadastroCliente',
