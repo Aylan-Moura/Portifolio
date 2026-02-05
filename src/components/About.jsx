@@ -2,8 +2,15 @@ export default function About() {
     const tools = [
         { name: 'Java', icon: './assets/java.png', },
         { name: 'Spring', icon: './assets/spring.png', },
-        { name: 'Api', icon: './assets/api.png', },
+        { name: 'React', icon: './assets/react.png', },
+        { name: 'javascript', icon: './assets/javaS.png', },
+        { name: 'sql', icon: './assets/sql.png', },
+        { name: 'postgreSQL', icon: './assets/postgre.png', },
         { name: 'git', icon: './assets/git.png', },
+        { name: 'docker', icon: './assets/docker.png', },
+        { name: 'kubernetes', icon: './assets/kubernetes.png', },
+        { name: 'aws', icon: './assets/aws.png', },
+
     ];
 
     const data = [
@@ -11,19 +18,19 @@ export default function About() {
             name: 'Linguagens',
             icon1: './assets/code-icon.png',
             icon2: './assets/code-icon-dark.png',
-            description: 'Java, Spring Framework, SQL, APIs REST',
+            description: 'Java, Spring Framework, SQL, PostgreSQL, JavaScript, React, Tailwind.',
         },
         {
             name: 'Formação',
             icon1: './assets/edu-icon.png',
             icon2: './assets/edu-icon-dark.png',
-            description: 'Análise e desenvolvimento de sistemas',
+            description: 'Análise e desenvolvimento de sistemas.',
         },
         {
             name: 'Projetos',
             icon1: './assets/project-icon.png',
             icon2: './assets/project-icon-dark.png',
-            description: 'Mais de 5 projetos construidos',
+            description: 'Mais de 5 projetos construidos.',
         },
     ];
     return (
@@ -41,7 +48,9 @@ export default function About() {
                     </div>*/}
                 </div>
                 <div className="flex-1">
-                    <p className="mb-10 max-w-none font-Ovo">Sou um Desenvolvedor back-end com foco em sistemas escaláveis, bem arquitetados e orientados a boas práticas.</p>
+                    <p className="mb-10 max-w-none font-Ovo">Sou um profissional em formação com foco em desenvolvimento back-end, direcionando meus estudos e projetos para a construção de sistemas bem estruturados, escaláveis e baseados em boas práticas de engenharia de software. Desenvolvo projetos em Java aplicando lógica de programação, POO, arquitetura em camadas e código limpo, com objetivo de transformar conhecimento técnico em capacidade real de entrega.
+
+                                                             Possuo base introdutória em JavaScript, HTML, CSS, React e Tailwind, que complementa minha visão de integração entre camadas, embora minha especialização esteja voltada ao ecossistema Java. Tenho perfil disciplinado, orientado a aprendizado contínuo e flexibilidade para aprender novas linguagens e stacks conforme a necessidade do projeto. Busco oportunidade como estagiário, trainee ou desenvolvedor júnior para evoluir e contribuir em projetos reais.</p>
 
                     <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
                         {data.map((data) => (
