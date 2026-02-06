@@ -4,7 +4,7 @@ export default function Work() {
             name: 'Site institucional',
             icon: './assets/ben.png',
             description: 'Full Stack',
-            link: 'https://lardobenjamim.com.br/',
+            link: 'https://github.com/Aylan-Moura/Site-Institucional?tab=readme-ov-file',
         },
         {
             name: 'CRUD de clientes',
