@@ -3,7 +3,7 @@ export default function Work() {
         {
             name: 'Site institucional',
             icon: './assets/ben.png',
-            description: 'Full Stack',
+            description: 'Front-End',
             link: 'https://github.com/Aylan-Moura/Site-Institucional?tab=readme-ov-file',
         },
         {
