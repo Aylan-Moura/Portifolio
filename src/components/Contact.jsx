@@ -83,25 +83,24 @@ export default function Contact() {
                         <input
                             type="text"
                             placeholder="Digite seu nome"
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-blue-600/50 focus:border-blue-600 outline-none transition font-Outfit"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 focus:ring-2 focus:ring-blue-600/50 focus:border-blue-600 outline-none transition font-Outfit"                            
                             required
                             name="name"
                         />
                         <input
                             type="email"
                             placeholder="Digite seu E-mail"
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-blue-600/50 focus:border-blue-600 outline-none transition font-Outfit"
-                            required
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 focus:ring-2 focus:ring-blue-600/50 focus:border-blue-600 outline-none transition font-Outfit"                            required
                             name="email"
                         />
                     </div>
-                    <textarea
-                        rows="6"
-                        placeholder="Digite sua mensagem"
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-blue-600/50 focus:border-blue-600 outline-none transition resize-none font-Outfit"
-                        required
-                        name="message"
-                    />
+                   <textarea
+                   rows="6"
+                    placeholder="Digite sua mensagem"
+                 className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-blue-600/50 focus:border-blue-600 outline-none transition resize-none font-Outfit"
+                    required
+                  name="message"
+                      />
                     <div className="h-captcha max-w-full" data-captcha="true" />
                     <div className="flex flex-col items-center gap-4">
                         <button
