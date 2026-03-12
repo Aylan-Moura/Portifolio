@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --color-corporate: 30 58 138;
+        --color-corporate-blue: 59 130 246;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        @apply antialiased;
+    }
+}
+
+/* Corporate grid background */
+.bg-tech-grid {
+    background-image: linear-gradient(rgba(30, 58, 138, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 58, 138, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+}
+
+/* Gradient text utility */
+.text-gradient-tech {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-indigo-600 to-blue-500;
+}
+
+/* Section title underline */
+.section-line {
+    @apply w-16 h-0.5 bg-gradient-to-r from-blue-700 to-indigo-600 mx-auto mt-3 rounded-full;
+}

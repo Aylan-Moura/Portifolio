@@ -4,32 +4,25 @@ export default function Contact() {
     const [result, setResult] = useState("");
     const onSubmit = async (event) => {
         event.preventDefault();
-        const hCaptcha = event.target.querySelector('textarea[name=h-captcha-response]').value;
+        const hCaptcha = event.target.querySelector('textarea[name=h-captcha-response]')?.value;
         if (!hCaptcha) {
             event.preventDefault();
-            setResult("Please fill out captcha field");
+            setResult("Por favor, preencha o campo do captcha.");
             return
         }
-        setResult("Sending....");
+        setResult("Enviando....");
         const formData = new FormData(event.target);
-
-        // ----- Enter your Web3 Forms Access key below---------
-
         formData.append("access_key", "19adb775-ae9a-4409-aa5f-d29cb73ec934");
 
-
-
-         const res = await fetch("https://api.web3forms.com/submit", {
+        const res = await fetch("https://api.web3forms.com/submit", {
             method: "POST",
-             body: formData
-         }).then((res) => res.json());
+            body: formData
+        }).then((res) => res.json());
 
         if (res.success) {
-            console.log("Success", res);
             setResult(res.message);
             event.target.reset();
         } else {
-            console.log("Error", res);
             setResult(res.message);
         }
     };
@@ -40,29 +33,19 @@ export default function Contact() {
             let lang = null;
             let onload = null;
             let render = null;
-
             captchadiv.forEach(function (item) {
                 const sitekey = item.dataset.sitekey;
                 lang = item.dataset.lang;
                 onload = item.dataset.onload;
                 render = item.dataset.render;
-
                 if (!sitekey) {
                     item.dataset.sitekey = "50b2fe65-b00b-4b9e-ad62-3ba471098be2";
                 }
             });
-
             let scriptSrc = "https://js.hcaptcha.com/1/api.js?recaptchacompat=off";
-            if (lang) {
-                scriptSrc += `&hl=${lang}`;
-            }
-            if (onload) {
-                scriptSrc += `&onload=${onload}`;
-            }
-            if (render) {
-                scriptSrc += `&render=${render}`;
-            }
-
+            if (lang) scriptSrc += `&hl=${lang}`;
+            if (onload) scriptSrc += `&onload=${onload}`;
+            if (render) scriptSrc += `&render=${render}`;
             var script = document.createElement("script");
             script.type = "text/javascript";
             script.async = true;
@@ -75,30 +58,63 @@ export default function Contact() {
     useEffect(() => {
         CaptchaLoader();
     }, []);
+
     return (
-        <div id="contact" className="w-full px-[12%] py-10 scroll-mt-20 bg-[url('./assets/footer-bg-color.png')] bg-no-repeat bg-[length:90%_auto] bg-center dark:bg-none">
+        <section id="contact" className="w-full px-4 sm:px-[8%] lg:px-[12%] py-20 scroll-mt-20 relative overflow-hidden">
+            <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
 
+            <div className="max-w-2xl mx-auto relative z-10">
+                <h4 className="text-center text-sm font-semibold uppercase tracking-widest text-blue-700 dark:text-blue-400 font-Outfit">
+                    
+                </h4>
+                <h2 className="text-center text-2xl sm:text-4xl lg:text-5xl font-Ovo font-bold text-slate-800 dark:text-white mt-2">
+                    Vamos conversar?
+                </h2>
+                <div className="section-line" />
+                <p className="text-center mt-8 mb-16 text-slate-700 dark:text-slate-300 font-medium font-Outfit leading-relaxed">
+                    Estou disponível para oportunidades como Desenvolvedor Back-End Júnior. Se você tem um projeto, uma vaga ou quer trocar uma ideia sobre tecnologia, fique à vontade para entrar em contato — responderei o mais breve possível.
+                </p>
 
-            <h2 className="text-center text-5xl font-Ovo">Entre em contato</h2>
-            <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">Adoraria receber seu feedback! Se você tiver alguma dúvida, comentário ou sugestão, utilize o formulário abaixo.</p>
+                <form onSubmit={onSubmit} className="space-y-6">
+                    <input type="hidden" name="subject" value="Aylan - Novo formulário de submissão" />
 
-            <form onSubmit={onSubmit} className="max-w-2xl mx-auto">
-
-                <input type="hidden" name="subject" value="Aylan - Novo formulário de submissão" />
-
-                <div className="grid grid-cols-auto gap-6 mt-10 mb-8">
-                    <input type="text" placeholder="Digite seu nome" className="flex-1 px-3 py-2 focus:ring-1 outline-none border border-gray-300 dark:border-white/30 rounded-md bg-white dark:bg-darkHover/30" required name="name" />
-
-                    <input type="email" placeholder="Digite seu E-mail" className="flex-1 px-3 py-2 focus:ring-1 outline-none border border-gray-300 dark:border-white/30 rounded-md bg-white dark:bg-darkHover/30" required name="email" />
-                </div>
-                <textarea rows="6" placeholder="Digite sua menssagem" className="w-full px-4 py-2 focus:ring-1 outline-none border border-gray-300 dark:border-white/30 rounded-md bg-white mb-6 dark:bg-darkHover/30" required name="message"></textarea>
-                <div className="h-captcha mb-6 max-w-full" data-captcha="true"></div>
-                <button type='submit' className="py-2 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 dark:bg-transparent dark:border dark:border-white/30 dark:hover:bg-darkHover">
-                Enviar agora
-                    <img src="./assets/right-arrow-white.png" alt="" className="w-4" />
-                </button>
-                <p className='mt-4'>{result}</p>
-            </form>
-        </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <input
+                            type="text"
+                            placeholder="Digite seu nome"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-blue-600/50 focus:border-blue-600 outline-none transition font-Outfit"
+                            required
+                            name="name"
+                        />
+                        <input
+                            type="email"
+                            placeholder="Digite seu E-mail"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-blue-600/50 focus:border-blue-600 outline-none transition font-Outfit"
+                            required
+                            name="email"
+                        />
+                    </div>
+                    <textarea
+                        rows="6"
+                        placeholder="Digite sua mensagem"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-blue-600/50 focus:border-blue-600 outline-none transition resize-none font-Outfit"
+                        required
+                        name="message"
+                    />
+                    <div className="h-captcha max-w-full" data-captcha="true" />
+                    <div className="flex flex-col items-center gap-4">
+                        <button
+                            type="submit"
+                            className="py-3.5 px-10 rounded-full bg-gradient-to-r from-blue-700 to-indigo-600 text-white font-medium flex items-center gap-2 shadow-lg shadow-blue-700/25 hover:shadow-corporate transition duration-300"
+                        >
+                            Enviar agora
+                            <img src="./assets/right-arrow-white.png" alt="" className="w-4" />
+                        </button>
+                        <p className="text-sm text-slate-600">{result}</p>
+                    </div>
+                </form>
+            </div>
+        </section>
     )
 }
